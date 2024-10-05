@@ -1,29 +1,35 @@
-if __name__ == '__main__':
+"""
+Title     : Lists
+Subdomain : Data Types
+Domain    : Python
+Author    : Ahmedur Rahman Shovon
+Created   : 06 July 2020
+Updated   : 06 February 2023
+Problem   : https://www.hackerrank.com/challenges/python-lists/problem
+"""
+
+
+if __name__ == "__main__":
     N = int(input())
-    l = []
-for i in range(N):
-    name = input()
-    spl = str.split(name)
-    if len(spl) == 3:
-        com = str(spl[0])
-        ind = int(spl[1])
-        obj = int(spl[2])
-    elif len(spl) == 2:
-        com = str(spl[0])
-        obj = int(spl[1])
-    elif len(spl) == 1:
-        com = str(spl[0])
-    if com == "insert":
-        l.insert(ind,obj)
-    elif com == "print":
-        print (l)
-    elif com == "remove":
-        l.remove(obj)
-    elif com == "append":
-        l.append(obj)
-    elif com == "sort":
-        l.sort()
-    elif com == "pop":
-        l.pop()
-    else:
-        l.reverse()
+    ar = []
+    for _ in range(N):
+        command_args = input().strip().split(" ")
+        cmd = command_args[0]
+        if cmd == "print":
+            print(ar)
+        elif cmd == "sort":
+            ar.sort()
+        elif cmd == "reverse":
+            ar.reverse()
+        elif cmd == "pop":
+            ar.pop()
+        elif cmd == "remove":
+            val = int(command_args[1])
+            ar.remove(val)
+        elif cmd == "append":
+            val = int(command_args[1])
+            ar.append(val)
+        elif cmd == "insert":
+            pos = int(command_args[1])
+            val = int(command_args[2])
+            ar.insert(pos, val)
